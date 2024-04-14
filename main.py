@@ -42,6 +42,9 @@ data = {
     }
   }
 }
+# users name
+username_location = data["sessions"]["NgCtDhQGMYN530oxpKHoWNiVjvT2"]["1691720687567-1691720689880"]["username"]
+
 
 # prompt: count number of punches
 
@@ -54,7 +57,7 @@ st.write('the number of punches are' , num_punches)
 total_punch = 0
 for punch in data["sessions"]["NgCtDhQGMYN530oxpKHoWNiVjvT2"]["1691720687567-1691720689880"]["punches"].values():
   total_punch += punch
-st.write(total_punch)
+#st.write(total_punch)
 
 
 # prompt: average of punch
@@ -103,7 +106,7 @@ st.write(punch_int)
 
 
 total_punch_force = round(sum(punch_force))
-st.write('sum of punches' , total_punch_force)
+st.write('sum of punches g force from punches' , total_punch_force)
 
 
 # prompt: average of punch
@@ -115,9 +118,10 @@ st.write('average punch:', average_punch)
 
 
 col1, col2, col3 = st.columns(3)
-col1.metric("Amount Of Punches", num_punches, "1.2 °F")
-col2.metric("Total Amount of Strike Force", total_punch_force, "-8%")
-col3.metric("Humidity", "86%", "4%")
+test = "g-force"
+col1.metric("Amount Of Punches", num_punches, )#"1.2 °F")
+col2.metric(f"Total Amount of Strike Force",f" {total_punch_force} {test}"  ,) # "-8%")
+col3.metric("User", username_location, ) # "4%")
 
 
 
